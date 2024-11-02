@@ -1,9 +1,10 @@
 import React from 'react'
+import './styles.css';
 
 const CustomTable = ({ data = [], config = [] }) => {
 
     const renderHeader = () => config.map(({ colHeaderLabel, renderColHeader }) => {
-        return <th key={colHeaderLabel}>
+        return <th className='table-data' key={colHeaderLabel}>
             {renderColHeader?.(colHeaderLabel) || colHeaderLabel}
         </th>;
     })
@@ -12,7 +13,7 @@ const CustomTable = ({ data = [], config = [] }) => {
         const columns = config.map(curItem => {
             const { colHeaderLabel, renderCol } = curItem;
 
-            return <td key={colHeaderLabel}>
+            return <td className='table-data' key={colHeaderLabel}>
                 {renderCol(curData)}
             </td>
         });
